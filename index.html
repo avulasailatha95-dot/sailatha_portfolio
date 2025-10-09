@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio Pro</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Load Inter Font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Dark Theme (Default) */
+        body.dark-theme {
+            background-color: #333333;
+            color: #ffffff;
+        }
+        .dark-theme .bg-card {
+            background-color: #444444;
+        }
+        .dark-theme .text-card {
+            color: #ffffff;
+        }
+        .dark-theme .input-field {
+            background-color: #555;
+            border-color: #444;
+            color: #ffffff;
+        }
+        .dark-theme .section-title {
+            color: #9b59b6;
+            border-bottom-color: #9b59b6;
+        }
+        .dark-theme .tag-bubble {
+            background-color: #5a3d6d; /* A darker shade of the theme purple */
+            color: #e0e0e0;
+        }
+
+        /* Light Theme */
+        body.light-theme {
+            background-color: #f0f0f0;
+            color: #333333;
+        }
+        .light-theme .bg-card {
+            background-color: #ffffff;
+        }
+        .light-theme .text-card {
+            color: #333333;
+        }
+        .light-theme .input-field {
+            background-color: #e0e0e0;
+            border-color: #ccc;
+            color: #333333;
+        }
+        .light-theme .section-title {
+            color: #9b59b6;
+            border-bottom-color: #9b59b6;
+        }
+        .light-theme .tag-bubble {
+            background-color: #d8c1e2; /* A lighter shade of the theme purple */
+            color: #333333;
+        }
+
+        /* Custom CSS for project card hover effect */
+        .project-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Custom styling for the scrollbar to match the dark theme */
+        body.dark-theme ::-webkit-scrollbar {
+            width: 12px;
+        }
+        body.dark-theme ::-webkit-scrollbar-track {
+            background: #333333;
+        }
+        body.dark-theme ::-webkit-scrollbar-thumb {
+            background-color: #555;
+            border-radius: 6px;
+            border: 3px solid #333333;
+        }
+        body.dark-theme ::-webkit-scrollbar-thumb:hover {
+            background-color: #777;
+        }
+        
+        body.light-theme ::-webkit-scrollbar {
+            width: 12px;
+        }
+        body.light-theme ::-webkit-scrollbar-track {
+            background: #f0f0f0;
+        }
+        body.light-theme ::-webkit-scrollbar-thumb {
+            background-color: #ccc;
+            border-radius: 6px;
+            border: 3px solid #f0f0f0;
+        }
+        body.light-theme ::-webkit-scrollbar-thumb:hover {
+            background-color: #999;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <!-- Header & Navigation -->
+    <header class="container mx-auto px-4 py-6 flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-[#9b59b6] transition-colors duration-300 hover:text-[#c18cdb]">Venkata Sailatha Avula</h1>
+        <nav class="flex items-center space-x-6">
+            <ul class="flex space-x-6">
+                <li><a href="#about" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300 font-bold">About</a></li>
+                <li><a href="#projects" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300 font-bold">Projects</a></li>
+                <li><a href="#certifications" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300 font-bold">Certifications</a></li>
+                <li><a href="#contact" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300 font-bold">Contact</a></li>
+            </ul>
+            <div class="flex space-x-4">
+                <a href="https://github.com/venkata-sailatha" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/venkata-sailatha-avula-14883a219/" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300">
+                    <i class="fab fa-linkedin-in text-2xl"></i>
+                </a>
+                <a href="avulavenkatasailatha55@gmail.com" class="text-[#9b59b6] hover:text-[#c18cdb] transition-colors duration-300">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+            <button id="theme-toggle" class="p-2 rounded-full transition-colors duration-300">
+                <svg id="moon-icon" class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                </svg>
+                <svg id="sun-icon" class="w-6 h-6 hidden text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- About Section -->
+        <section id="about" class="my-16">
+            <div class="flex items-center justify-between mb-8">
+                <h2 class="section-title text-4xl font-bold pb-4">About Me</h2>
+                <!-- View Resume button placed here -->
+                <a href="#" download="Your_Name_Resume.pdf" class="bg-[#9b59b6] hover:bg-[#c18cdb] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-300 flex items-center text-sm">
+                    View Resume
+                </a>
+            </div>
+            <div class="bg-card rounded-2xl shadow-xl p-8">
+                <p class="text-lg leading-relaxed mb-6 text-card">
+                    I specialize in building and deploying intelligent systems. With a strong foundation in deep learning, natural language processing, and computer vision, I transform complex data into actionable insights and innovative products.
+                </p>
+                <h3 class="text-2xl font-semibold mt-8 mb-4 text-card">Skills</h3>
+                <div class="flex flex-wrap gap-4 text-sm">
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Machine Learning</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Deep Learning</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Natural Language Processing</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Generative AI</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Data Science</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">Python</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">MCP</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">TensorFlow</span>
+                    <span class="bg-[#9b59b6] text-white px-4 py-2 rounded-full shadow-md">RAG</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="my-16">
+            <h2 class="section-title text-4xl font-bold pb-4 mb-8">Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                
+                <div class="project-card bg-card rounded-2xl shadow-xl flex flex-col justify-between overflow-hidden">
+                    <img class="w-full h-48 object-cover rounded-t-lg" src="images\Screenshot 2025-09-24 162540.png" alt="An illustration of a neural network processing images for classification." loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-[#9b59b6] mb-2">Real-Time Anomaly Detection using Isolation Forest</h3>
+                        <p class="text-sm text-card mb-4">This project provides a Streamlit web app that allows users to upload an Excel file containing time-series data and detects anomalies using the Isolation Forest algorithm.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="tag-bubble px-3 py-1 rounded-full">Python</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">Streamlit</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">matplotlib</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">Pandas</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">Scikit-learn</span>
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://anomaly-detection-nq92.onrender.com" class="flex-grow text-center bg-[#9b59b6] hover:bg-[#c18cdb] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/venkata-sailatha/Anomaly-Detection" class="flex-grow text-center bg-transparent border border-gray-600 hover:border-[#c18cdb] text-card hover:text-[#c18cdb] font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+             
+
+                <!-- New Project Card: Load Forecasting -->
+                <div class="project-card bg-card rounded-2xl shadow-xl flex flex-col justify-between overflow-hidden">
+                    <img class="w-full h-48 object-cover rounded-t-lg" src="images\image.png" alt="An illustration of a chart with a predictive line extending into the future." loading="lazy">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-semibold text-[#9b59b6] mb-2">Load Forecasting using ML</h3>
+                        <p class="text-sm text-card mb-4">This Streamlit web application allows you to upload an Excel file containing smart meter readings and performs basic load forecasting using a Linear Regression model.</p>
+                        <div class="flex flex-wrap gap-2 text-xs mb-4">
+                            <span class="tag-bubble px-3 py-1 rounded-full">streamlit</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">Python</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">matplotlib</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">pandas</span>
+                            <span class="tag-bubble px-3 py-1 rounded-full">scikit-learn</span>
+                        </div>
+                        <div class="flex space-x-4 mt-auto">
+                            <a href="https://forecasting-cofm.onrender.com/" class="flex-grow text-center bg-[#9b59b6] hover:bg-[#c18cdb] text-white font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-300">
+                                <i class="fas fa-external-link-alt mr-2"></i>Live Demo
+                            </a>
+                            <a href="https://github.com/venkata-sailatha/Forecasting" class="flex-grow text-center bg-transparent border border-gray-600 hover:border-[#c18cdb] text-card hover:text-[#c18cdb] font-bold py-2 px-4 rounded-full shadow-md transition-colors duration-300">
+                                <i class="fab fa-github mr-2"></i>GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="my-16">
+            <h2 class="section-title text-4xl font-bold pb-4 mb-8">Certifications</h2>
+            <div class="space-y-6">
+                <!-- Certification Card 1 -->
+                <div class="project-card bg-card rounded-2xl shadow-xl p-8 flex items-center space-x-6">
+                    <i class="fas fa-award text-4xl text-[#9b59b6]"></i>
+                    <div>
+                        <h3 class="text-lg font-semibold text-[#9b59b6]">Google Data Analytics </h3>
+                        <p class="text-sm text-card">Coursera | 2024</p>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="my-16">
+            <h2 class="section-title text-4xl font-bold pb-4 mb-8">Contact</h2>
+            <div class="bg-card rounded-2xl shadow-xl p-8 max-w-xl mx-auto text-center">
+                <p class="text-lg text-card mb-6">Let's connect!</p>
+                <div class="space-y-4">
+                    <div>
+                        <h3 class="text-xl font-semibold text-[#9b59b6]">Location</h3>
+                        <p class="text-card">Hyderabad, India</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-[#9b59b6]">Email</h3>
+                        <a href="mailto:your.email@example.com" class="text-card hover:text-[#c18cdb] transition-colors duration-300">
+avulavenkatasailatha55@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="text-center py-6 text-sm text-card">
+        &copy; Venkata Sailatha Avula.
+    </footer>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIcon = document.getElementById('sun-icon');
+
+        // Check for saved theme preference in localStorage
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            body.className = savedTheme;
+            if (savedTheme === 'light-theme') {
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            } else {
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+            }
+        }
+
+        // Add a click event listener to the theme toggle button
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light-theme');
+                moonIcon.classList.add('hidden');
+                sunIcon.classList.remove('hidden');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme');
+                moonIcon.classList.remove('hidden');
+                sunIcon.classList.add('hidden');
+            }
+        });
+    </script>
+
+</body>
+</html>
